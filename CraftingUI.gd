@@ -12,18 +12,56 @@ const items = {
 	"stick": [2, 0],
 	"rock": [3, 3],
 	"leaves": [1, 9],
+	"vine": [8, 6],
+	"pickaxe": [9, 1],
+	"hammer": [9, 2],
 }
 
 const selected_items:Dictionary = {} # idx: bool
 const active_ingredients := []
 var active_recipe := ""
 
+class RecipeNode:
+	var name:String
+	var item:String
+	var children:Array
+		
+	func _init(name:String, item:String, children:Array = []):
+		self.name = name
+		self.item = item
+		self.children = children
+	
+	func has(child_name:String):
+		for child in children:
+			if child.name == child_name:
+				return true
+		return false
+		
+	func get(child_name:String):
+		for child in children:
+			if child.name == child_name:
+				return child
+		return null
+
 # a trie with ingredients sorted by alpha ascending from root to last branch
-const recipes:Dictionary = {
-	"wood": {
-		"wood": "lumber"
-	}
-}
+var recipes := RecipeNode.new("root", "", [
+	RecipeNode.new("wood", "", [
+		RecipeNode.new("wood", "lumber")
+	]),
+	RecipeNode.new("leaves", "", [
+		RecipeNode.new("leaves", "", [
+			RecipeNode.new("leaves", "vine")
+		])
+	]),
+	RecipeNode.new("lumber", "", [
+		RecipeNode.new("rock", "", [
+			RecipeNode.new("vine", "hammer"),
+			RecipeNode.new("rock", "", [
+				RecipeNode.new("vine", "pickaxe")
+			])
+		])
+	])
+])
 
 func _ready():
 	add_item(inventory, "leaves")
@@ -37,6 +75,8 @@ func _ready():
 	add_item(inventory, "wood")
 	add_item(inventory, "rock")
 	add_item(inventory, "rock")
+	add_item(inventory, "rock")
+	add_item(inventory, "vine")
 
 	
 	calculate_craftable()
@@ -66,17 +106,17 @@ func calculate_craftable():
 	
 	var i := 0
 	var l := selected_sorted.size()
-	var r = recipes # dictionary or string
-	while i < l and r is Dictionary and r.has(selected_sorted[i]):
-		r = r[selected_sorted[i]]
+	var r = recipes
+	while i < l and r.has(selected_sorted[i]):
+		r = r.get(selected_sorted[i])
 		active_ingredients.append(selected_sorted[i])
 		i += 1
 	
-	if typeof(r) == TYPE_STRING:
-		return r
-	else:
+	if r.item == "":
 		active_ingredients.clear()
 		return null
+	else:
+		return r.item
 
 func _on_ItemList_multi_selected(index, _selected):
 	if selected_items.has(index):
@@ -99,12 +139,12 @@ func _on_Craft_pressed():
 	craft_item()
 
 func craft_item():
-	var inventory_selected_items:Array = inventory.get_selected_items()
 	for item in active_ingredients:
-		for i in inventory_selected_items:
-			if item == inventory.get_item_text(i):
-				inventory.remove_item(i)
-				break
+		for i in selected_items:
+			if selected_items[i]:
+				if item == inventory.get_item_text(i):
+					inventory.remove_item(i)
+					break
 		
 	# @todo animate selected inventory items out
 	
