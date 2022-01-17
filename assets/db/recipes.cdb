@@ -1,0 +1,161 @@
+{
+	"sheets": [
+		{
+			"name": "Items",
+			"columns": [
+				{
+					"typeStr": "0",
+					"name": "name"
+				},
+				{
+					"typeStr": "8",
+					"name": "ingredients",
+					"display": null
+				},
+				{
+					"typeStr": "6:Icons",
+					"name": "icon"
+				}
+			],
+			"lines": [
+				{
+					"name": "wood",
+					"ingredients": [],
+					"icon": "leaf"
+				},
+				{
+					"name": "leaf",
+					"ingredients": [],
+					"icon": "leaf"
+				},
+				{
+					"name": "rock",
+					"ingredients": [],
+					"icon": "leaf"
+				},
+				{
+					"name": "stone",
+					"ingredients": [
+						{
+							"name": "rock"
+						},
+						{
+							"name": "rock"
+						}
+					],
+					"icon": "leaf"
+				},
+				{
+					"name": "vine",
+					"ingredients": [
+						{
+							"name": "leaf"
+						},
+						{
+							"name": "leaf"
+						},
+						{
+							"name": "leaf"
+						}
+					],
+					"icon": "leaf"
+				},
+				{
+					"name": "lumber",
+					"ingredients": [
+						{
+							"name": "wood"
+						},
+						{
+							"name": "wood"
+						}
+					],
+					"icon": "leaf"
+				},
+				{
+					"name": "pickaxe",
+					"ingredients": [
+						{
+							"name": "lumber"
+						},
+						{
+							"name": "vine"
+						},
+						{
+							"name": "stone"
+						},
+						{
+							"name": "stone"
+						}
+					],
+					"icon": "leaf"
+				},
+				{
+					"name": "hammer",
+					"ingredients": [
+						{
+							"name": "lumber"
+						},
+						{
+							"name": "vine"
+						},
+						{
+							"name": "stone"
+						}
+					],
+					"icon": "leaf"
+				}
+			],
+			"separators": [],
+			"props": {
+				"displayColumn": "name"
+			}
+		},
+		{
+			"name": "Items@ingredients",
+			"props": {
+				"hide": true
+			},
+			"separators": [],
+			"lines": [],
+			"columns": [
+				{
+					"typeStr": "6:Items",
+					"name": "name",
+					"display": null
+				}
+			]
+		},
+		{
+			"name": "Icons",
+			"columns": [
+				{
+					"typeStr": "0",
+					"name": "name"
+				},
+				{
+					"typeStr": "14",
+					"name": "texture",
+					"display": null
+				}
+			],
+			"lines": [
+				{
+					"name": "leaf",
+					"texture": {
+						"file": "resources_basic.png",
+						"size": 24,
+						"x": 4,
+						"y": 0
+					}
+				}
+			],
+			"separators": [],
+			"props": {
+				"displayIcon": "texture"
+			}
+		}
+	],
+	"customTypes": [],
+	"compress": false
+}
