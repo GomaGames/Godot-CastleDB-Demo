@@ -10,6 +10,8 @@ const items = {
 	"wood": [0, 0],
 	"lumber": [1, 0],
 	"stick": [2, 0],
+	"rock": [3, 3],
+	"leaves": [1, 9],
 }
 
 const selected_items:Dictionary = {} # idx: bool
@@ -24,12 +26,18 @@ const recipes:Dictionary = {
 }
 
 func _ready():
+	add_item(inventory, "leaves")
+	add_item(inventory, "leaves")
+	add_item(inventory, "leaves")
 	add_item(inventory, "wood")
 	add_item(inventory, "wood")
 	add_item(inventory, "wood")
 	add_item(inventory, "wood")
 	add_item(inventory, "wood")
 	add_item(inventory, "wood")
+	add_item(inventory, "rock")
+	add_item(inventory, "rock")
+
 	
 	calculate_craftable()
 	
@@ -48,10 +56,11 @@ func update_craftable():
 		active_recipe = craftable_item
 	
 func calculate_craftable():
-	var inventory_selected_items:Array = inventory.get_selected_items()
 	var selected_sorted := Array()
-	for i in inventory_selected_items.size():
-		selected_sorted.append(inventory.get_item_text(i))
+	
+	for i in selected_items:
+		if selected_items[i]:
+			selected_sorted.append(inventory.get_item_text(i))
 	
 	selected_sorted.sort()
 	
@@ -83,7 +92,13 @@ func _on_ItemList_multi_selected(index, _selected):
 	update_craftable()
 
 
-func _on_ItemList_item_activated(index):
+func _on_ItemList_item_activated(_index):
+	craft_item()
+	
+func _on_Craft_pressed():
+	craft_item()
+
+func craft_item():
 	var inventory_selected_items:Array = inventory.get_selected_items()
 	for item in active_ingredients:
 		for i in inventory_selected_items:
@@ -95,7 +110,7 @@ func _on_ItemList_item_activated(index):
 	
 	# animate craftable items in to inventory
 	var s := Sprite.new()
-	s.texture = craftable.get_item_icon(index)
+	s.texture = craftable.get_item_icon(0)
 	s.scale = Vector2(2,2)
 	s.global_position = craftable.get_global_transform().get_origin()
 	self.add_child(s)
