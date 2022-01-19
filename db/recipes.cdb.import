@@ -1,0 +1,14 @@
+[remap]
+
+importer="castledb.importer"
+type="Script"
+path="res://.import/recipes.cdb-79ff6ae33d0415a77d15e7d30f5b6a5d.gd"
+
+[deps]
+
+source_file="res://db/recipes.cdb"
+dest_files=[ "res://.import/recipes.cdb-79ff6ae33d0415a77d15e7d30f5b6a5d.gd" ]
+
+[params]
+
+default=false

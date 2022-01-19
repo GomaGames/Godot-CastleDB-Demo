@@ -1,7 +1,7 @@
 {
 	"sheets": [
 		{
-			"name": "Items",
+			"name": "items",
 			"columns": [
 				{
 					"typeStr": "0",
@@ -13,7 +13,7 @@
 					"display": null
 				},
 				{
-					"typeStr": "6:Icons",
+					"typeStr": "6:icons",
 					"name": "icon"
 				}
 			],
@@ -21,17 +21,17 @@
 				{
 					"name": "wood",
 					"ingredients": [],
-					"icon": "leaf"
+					"icon": "leaves"
 				},
 				{
-					"name": "leaf",
+					"name": "leaves",
 					"ingredients": [],
-					"icon": "leaf"
+					"icon": "leaves"
 				},
 				{
 					"name": "rock",
 					"ingredients": [],
-					"icon": "leaf"
+					"icon": "leaves"
 				},
 				{
 					"name": "stone",
@@ -43,22 +43,22 @@
 							"name": "rock"
 						}
 					],
-					"icon": "leaf"
+					"icon": "leaves"
 				},
 				{
 					"name": "vine",
 					"ingredients": [
 						{
-							"name": "leaf"
+							"name": "leaves"
 						},
 						{
-							"name": "leaf"
+							"name": "leaves"
 						},
 						{
-							"name": "leaf"
+							"name": "leaves"
 						}
 					],
-					"icon": "leaf"
+					"icon": "leaves"
 				},
 				{
 					"name": "lumber",
@@ -70,7 +70,7 @@
 							"name": "wood"
 						}
 					],
-					"icon": "leaf"
+					"icon": "leaves"
 				},
 				{
 					"name": "pickaxe",
@@ -88,7 +88,7 @@
 							"name": "stone"
 						}
 					],
-					"icon": "leaf"
+					"icon": "leaves"
 				},
 				{
 					"name": "hammer",
@@ -103,7 +103,7 @@
 							"name": "stone"
 						}
 					],
-					"icon": "leaf"
+					"icon": "leaves"
 				}
 			],
 			"separators": [],
@@ -112,7 +112,7 @@
 			}
 		},
 		{
-			"name": "Items@ingredients",
+			"name": "items@ingredients",
 			"props": {
 				"hide": true
 			},
@@ -120,14 +120,14 @@
 			"lines": [],
 			"columns": [
 				{
-					"typeStr": "6:Items",
+					"typeStr": "6:items",
 					"name": "name",
 					"display": null
 				}
 			]
 		},
 		{
-			"name": "Icons",
+			"name": "icons",
 			"columns": [
 				{
 					"typeStr": "0",
@@ -141,11 +141,11 @@
 			],
 			"lines": [
 				{
-					"name": "leaf",
+					"name": "leaves",
 					"texture": {
-						"file": "resources_basic.png",
+						"file": "../assets/crafting_materials/resources_basic.png",
 						"size": 24,
-						"x": 4,
+						"x": 1,
 						"y": 0
 					}
 				}
