@@ -8,15 +8,33 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Reference",
+"class": "CastleDB",
+"language": "GDScript",
+"path": "res://CastleDB.gd"
+}, {
+"base": "Reference",
+"class": "Recipe",
+"language": "GDScript",
+"path": "res://Recipe.gd"
+}, {
+"base": "Reference",
+"class": "RecipeNode",
+"language": "GDScript",
+"path": "res://RecipeNode.gd"
+} ]
+_global_script_class_icons={
+"CastleDB": "",
+"Recipe": "",
+"RecipeNode": ""
+}
+
 [application]
 
 config/name="Godot CastleDB Demo"
 run/main_scene="res://CraftingUI.tscn"
 config/icon="res://icon.png"
-
-[autoload]
-
-Recipes="*res://db/recipes.cdb"
 
 [editor_plugins]
 
