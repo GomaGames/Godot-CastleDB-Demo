@@ -26,6 +26,7 @@ margin_top = 8.0
 margin_right = 236.0
 margin_bottom = 515.0
 select_mode = 1
+allow_reselect = true
 max_columns = 4
 same_column_width = true
 icon_mode = 0
@@ -85,7 +86,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="item_selected" from="Inventory/ItemList" to="." method="_on_ItemList_item_selected"]
 [connection signal="multi_selected" from="Inventory/ItemList" to="." method="_on_ItemList_multi_selected"]
 [connection signal="item_activated" from="Craftable/ItemList" to="." method="_on_ItemList_item_activated"]
 [connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
